@@ -13,6 +13,7 @@
   isolation: isolate;
   background: #00040a;
   overflow: hidden;
+  overflow-y: hidden;
   width: 100%;
   max-width: 100vw;
 }
