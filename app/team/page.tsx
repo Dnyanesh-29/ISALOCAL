@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/page-header"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import styles from "./team.module.css"
-import DnyaneshImg from "./imgs/Dnyanesh_web1.jpg";
+
 
 
 const coreTeam = [
@@ -16,10 +16,10 @@ const coreTeam = [
   { name: "Member 4", role: "Treasurer", img: "/team/treasurer.jpg" },
 ]
 const heads = [
-  { name: "Dnyanesh", role: "WEB DEV Head", img: "DnyaneshImg" },
-  { name: "AATISH", role: "WEB DEV Head", img: "team/Dnyanesh_web1.jpg" },
-  { name: "JAYESH", role: "AIML Head", img: "https://github.com/Dnyanesh-29/isavitpune/blob/main/public/images/JAYESH_AI2.jpg?raw=true" },
-  { name: "ATUL", role: "AIML Head", img: "https://github.com/Dnyanesh-29/isavitpune/blob/main/public/images/ATUL_AI1.png?raw=true" },
+  { name: "Dnyanesh", role: "WEB DEV Head", img: "team/Dnyanesh_web1.jpg" },
+  { name: "AATISH", role: "WEB DEV Head", img: "team\AATISH _web2.JPG" },
+  { name: "JAYESH", role: "AIML Head", img: "team\JAYESH_AI2.jpg" },
+  { name: "ATUL", role: "AIML Head", img: "team\ATUL_AI1.png" },
   { name: "Member 9", role: "PR Head", img: "/team/pr-head.jpg" },
   { name: "Member 10", role: "Logistics Head", img: "/team/ARADHAY_KOPULWAR_cyber.jpg" },
 ]
