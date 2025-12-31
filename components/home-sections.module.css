@@ -145,6 +145,9 @@
   z-index: 1;
   width: 100%;
 }
+.home_main__ZqXmQ{
+  overflow-y: hidden;
+}
 
 /* Icon with light background that becomes primary on hover */
 .icon {

@@ -16,7 +16,9 @@
   width: 100%;
   max-width: 100vw;
 }
-
+.home_main__ZqXmQ{
+  overflow-y: hidden;
+}
 /* Spline iframe as bg */
 .heroBg {
   position: absolute;
