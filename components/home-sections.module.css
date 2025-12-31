@@ -80,7 +80,9 @@
     gap: 2rem;
   }
 }
-
+.home_main__ZqXmQ{
+  overflow-y: hidden;
+}
 /* ---------------------------------------------------------
    Card with beautiful blur orb hover effect
    --------------------------------------------------------- */
