@@ -14,7 +14,7 @@ const coreTeam = [
   { name: "Member 4", role: "Treasurer", img: "/team/treasurer.jpg" },
 ]
 const heads = [
-  { name: "Dnyanesh", role: "WEB DEV Head", img: "../../public/team/Dnyanesh_web1.jpg" },
+  { name: "Dnyanesh", role: "WEB DEV Head", img: "./imgs/Dnyanesh_web1.jpg" },
   { name: "AATISH", role: "WEB DEV Head", img: "https://github.com/Dnyanesh-29/isavitpune/blob/main/public/images/AATISH%20_web2.JPG?raw=true" },
   { name: "JAYESH", role: "AIML Head", img: "https://github.com/Dnyanesh-29/isavitpune/blob/main/public/images/JAYESH_AI2.jpg?raw=true" },
   { name: "ATUL", role: "AIML Head", img: "https://github.com/Dnyanesh-29/isavitpune/blob/main/public/images/ATUL_AI1.png?raw=true" },
