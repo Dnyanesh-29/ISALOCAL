@@ -17,11 +17,11 @@ const coreTeam = [
 ]
 const heads = [
   { name: "Dnyanesh", role: "WEB DEV Head", img: "team/Dnyanesh_web1.jpg" },
-  { name: "AATISH", role: "WEB DEV Head", img: "team/AATISH _web2.jpg" },
+  { name: "AATISH", role: "WEB DEV Head", img: "team/AATISH_web2.jpg" },
   { name: "JAYESH", role: "AIML Head", img: "team/JAYESH_AI2.jpg" },
-  { name: "ATUL", role: "AIML Head", img: "team\ATUL_AI1.png" },
-  { name: "Member 9", role: "PR Head", img: "/team/pr-head.jpg" },
-  { name: "Member 10", role: "Logistics Head", img: "/team/ARADHAY_KOPULWAR_cyber.jpg" },
+  { name: "ATUL", role: "AIML Head", img: "team/ATUL_AI1.png" },
+  { name: "NEIL", role: "Mech Head", img: "team/NEIL_mech1.jpg" },
+  { name: "ADITYA", role: "MECH Head", img: "/team/ADITYA_mech2.jpg" },
 ]
 
 export default function TeamPage() {
