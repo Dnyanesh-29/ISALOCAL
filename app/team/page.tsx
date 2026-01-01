@@ -22,6 +22,14 @@ const heads = [
   { name: "ATUL", role: "AIML Head", img: "team/ATUL_AI1.png" },
   { name: "NEIL", role: "Mech Head", img: "team/NEIL_mech1.jpg" },
   { name: "ADITYA", role: "MECH Head", img: "/team/ADITYA_mech2.jpg" },
+  { name: "UTKARSH", role: "ROBOTICS Head", img: "/team/UTKARSH_R1.jpg" },
+  { name: "JAY", role: "ROBOTICS Head", img: "/team/JAY_R1.jpg" },
+  { name: "AMAN", role: "CSF Head", img: "/team/AMAN_CSF1.jpg" },
+  { name: "member", role: "CSF Head", img: "/team/" },
+  { name: "AARYA", role: "DATABASE Head", img: "/team/AARYA_D1.png" },
+  { name: "ABHAY", role: "DATABASE Head", img: "/team/ABHAY_D2.png" },
+
+
 ]
 
 export default function TeamPage() {
