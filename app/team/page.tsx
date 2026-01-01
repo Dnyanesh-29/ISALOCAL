@@ -39,6 +39,16 @@ const heads = [
   { name: "PRANIT", role: "Industry Relations Head", img: "/team/PRANIT_I2.jpg" },
   { name: "ATHARVA", role: "Industry Relations Head", img: "/team/ATHARVA_I3.png" },
 
+  { name: "SUSHANT", role: "MEDIA Head", img: "/team/SUSHANT_M1.jpg" },
+  { name: "LAKSHIT", role: "MEDIA Head", img: "/team/LAKSHIT_M2.png" },
+  { name: "NINAD", role: "MEDIA Head", img: "/team/NINAD_M3.jpg" },
+
+
+  { name: "ARADHAY", role: "CYBERSECURITY Head", img: "/team/ARADHAY_C1.png" },
+  { name: "VIBHA", role: "CYBERSECURITY Head", img: "/team/VIBHA_C2.jpg" },
+
+
+
 
 
 
