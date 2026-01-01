@@ -31,6 +31,9 @@ const heads = [
   { name: "YASH", role: "OPERATIONS Head", img: "/team/YASH_O1.jpg" },
   { name: "RITESH", role: "OPERATIONS Head", img: "/team/RITESH_O2.jpeg" },
   { name: "AYUSH", role: "OPERATIONS Head", img: "/team/AYUSH_O3.jpeg" },
+  { name: "SWAPNIL", role: "FINANCE Head", img: "/team/SWAPNIL_F1.jpg" },
+  { name: "YOGESH", role: "FINANCE Head", img: "/team/YOGESH_F2.jpg" },
+
 
 
 
