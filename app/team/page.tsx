@@ -33,6 +33,14 @@ const heads = [
   { name: "AYUSH", role: "OPERATIONS Head", img: "/team/AYUSH_O3.jpeg" },
   { name: "SWAPNIL", role: "FINANCE Head", img: "/team/SWAPNIL_F1.jpg" },
   { name: "YOGESH", role: "FINANCE Head", img: "/team/YOGESH_F2.jpg" },
+  { name: "SANJAY", role: "SPONSERSHIP Head", img: "/team/SANJAY_S1.png" },
+
+  { name: "RIYA", role: " Industry Relations Head", img: "/team/RIYA_I1.jpg" },
+  { name: "PRANIT", role: "Industry Relations Head", img: "/team/PRANIT_I2.jpg" },
+  { name: "ATHARVA", role: "Industry Relations Head", img: "/team/ATHARVA_I3.png" },
+
+
+
 
 
 
