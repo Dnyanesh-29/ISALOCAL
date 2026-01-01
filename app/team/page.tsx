@@ -27,7 +27,7 @@ const heads = [
   { name: "AMAN", role: "CSF Head", img: "/team/AMAN_CSF1.jpg" },
   { name: "member", role: "CSF Head", img: "/team/" },
   { name: "PALAK", role: "DATABASE Head", img: "/team/PALAK_P1.jpg" },
-  { name: "SAI", role: "DATABASE Head", img: "/team/SAI_P2.jpge" },
+  { name: "SAI", role: "DATABASE Head", img: "/team/SAI_P2.jpeg" },
   { name: "YASH", role: "OPERATIONS Head", img: "/team/YASH_O1.jpg" },
   { name: "RITESH", role: "OPERATIONS Head", img: "/team/RITESH_O2.jpeg" },
   { name: "AYUSH", role: "OPERATIONS Head", img: "/team/AYUSH_O3.jpeg" },
