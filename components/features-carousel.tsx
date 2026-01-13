@@ -14,7 +14,8 @@ const features = [
   },
   {
     id: 2,
-    image: "https://varioproductions.com/wp-content/uploads/2020/02/5-Event-Tech-Trends-to-Watch-Out-For-in-2020-scaled-1-1024x683.jpg",
+    image:
+      "https://varioproductions.com/wp-content/uploads/2020/02/5-Event-Tech-Trends-to-Watch-Out-For-in-2020-scaled-1-1024x683.jpg",
     title: "Flagship Events",
     description:
       "Compete, collaborate, and showcase your skills in our signature competitions and networking events designed for excellence.",
@@ -30,9 +31,22 @@ const features = [
 
 export function FeaturesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
   const autoScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   const startAutoScroll = () => {
+    if (isMobile) return // don't auto-scroll on mobile
+
     if (autoScrollTimeoutRef.current) {
       clearTimeout(autoScrollTimeoutRef.current)
     }
@@ -63,7 +77,7 @@ export function FeaturesCarousel() {
         clearTimeout(autoScrollTimeoutRef.current)
       }
     }
-  }, [])
+  }, [isMobile])
 
   return (
     <div className={styles.carouselSection}>
@@ -83,10 +97,14 @@ export function FeaturesCarousel() {
               <article
                 key={feature.id}
                 className={`${styles.card} ${isActive ? styles.active : ""}`}
-                style={{
-                  transform: `translateX(${offset * 100}%) scale(${isActive ? 1 : 0.75})`,
-                  opacity: Math.abs(offset) > 1 ? 0 : 1,
-                }}
+                style={
+                  !isMobile
+                    ? {
+                        transform: `translateX(${offset * 100}%) scale(${isActive ? 1 : 0.75})`,
+                        opacity: Math.abs(offset) > 1 ? 0 : 1,
+                      }
+                    : {}
+                }
               >
                 <div className={styles.cardImage}>
                   <img src={feature.image || "/placeholder.svg"} alt={feature.title} />
