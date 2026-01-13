@@ -31,7 +31,7 @@ export function AnimatedSection({
           }
         })
       },
-      { threshold: 0.2 },
+      { threshold: 0.01 },
     )
     io.observe(el)
     return () => io.disconnect()
