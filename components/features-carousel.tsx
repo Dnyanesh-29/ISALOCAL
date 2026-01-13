@@ -21,7 +21,7 @@ const features = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5X5G_MQzqTkjLQDhvGBsa89oWR10WKA0pw&s",
     title: "Industry Mentorship",
     description:
       "Guidance from experts to accelerate your growth through personalized mentorship and career development opportunities.",
