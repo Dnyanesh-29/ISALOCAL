@@ -17,21 +17,18 @@ export function EventDetailModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      {/* Increased modal width from 95vw to 70vw on desktop for larger, more impressive display */}
-      <DialogContent className="!max-w-[70vw] w-[70vw] max-h-[95vh] overflow-hidden p-0 gap-0 rounded-3xl shadow-2xl border-0 bg-white">
-        {/* Close button with enhanced styling */}
+      <DialogContent className="!max-w-[95vw] md:!max-w-[85vw] lg:!max-w-[70vw] w-full max-h-[95vh] overflow-hidden p-0 gap-0 rounded-2xl md:rounded-3xl shadow-2xl border-0 bg-white">
         <button
           onClick={() => onOpenChange(false)}
-          className="absolute top-6 right-6 z-50 rounded-full bg-white/95 hover:bg-white hover:scale-110 p-3 transition-all duration-200 shadow-lg"
+          className="absolute top-4 md:top-6 right-4 md:right-6 z-50 rounded-full bg-white/95 hover:bg-white hover:scale-110 p-2 md:p-3 transition-all duration-200 shadow-lg"
           aria-label="Close modal"
         >
-          <X className="w-6 h-6 text-gray-900" />
+          <X className="w-5 md:w-6 h-5 md:h-6 text-gray-900" />
         </button>
 
         {/* Scrollable content container */}
         <div className="overflow-y-auto max-h-[95vh] scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-transparent">
-          {/* Event header with image - larger and more dramatic */}
-          <div className="relative w-full h-96 md:h-[500px] overflow-hidden group">
+          <div className="relative w-full h-48 md:h-72 lg:h-96 lg:md:h-[500px] overflow-hidden group">
             <Image
               src={event.imgUrl || "/placeholder.svg"}
               alt={event.imgAlt}
@@ -44,40 +41,42 @@ export function EventDetailModal({
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-transparent"></div>
           </div>
 
-          {/* Event content with improved spacing and typography */}
-          <div className="relative bg-white px-8 md:px-14 lg:px-16 py-12 md:py-16">
+          <div className="relative bg-white px-4 py-6 md:px-8 md:py-12 lg:px-16 lg:py-16">
             {/* Date badge - redesigned */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
-              <p className="text-sm tracking-widest uppercase font-semibold text-blue-600">{event.date}</p>
+              <p className="text-xs md:text-sm tracking-widest uppercase font-semibold text-blue-600">{event.date}</p>
             </div>
 
-            {/* Title - larger and more impactful */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 text-pretty leading-tight mb-8">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 text-pretty leading-tight mb-4 md:mb-6 lg:mb-8">
               {event.title}
             </h2>
 
             {/* Enhanced divider */}
-            <div className="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mb-10"></div>
+            <div className="w-12 md:w-16 h-1.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mb-6 md:mb-10"></div>
 
-            {/* Description with better typography */}
-            <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-3xl mb-12">{event.longDescription}</p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-3xl mb-8 md:mb-12">
+              {event.longDescription}
+            </p>
 
-            <div className="mt-14 pt-10 border-t-2 border-gray-100">
-              <div className="flex flex-wrap gap-8">
+            <div className="mt-8 md:mt-14 pt-6 md:pt-10 border-t-2 border-gray-100">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-2">Event Type</p>
-                  <p className="text-lg font-semibold text-gray-900">Workshop & Competition</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1 md:mb-2">
+                    Event Type
+                  </p>
+                  <p className="text-base md:text-lg font-semibold text-gray-900">Workshop & Competition</p>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-2">Organized By</p>
-                  <p className="text-lg font-semibold text-gray-900">ISA VIT Pune</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-1 md:mb-2">
+                    Organized By
+                  </p>
+                  <p className="text-base md:text-lg font-semibold text-gray-900">ISA VIT Pune</p>
                 </div>
               </div>
             </div>
 
-            {/* Close hint */}
-            <div className="mt-12 text-center pb-4">
+            <div className="mt-8 md:mt-12 text-center pb-2 md:pb-4">
               <p className="text-xs text-gray-400">Click outside or press ESC to close</p>
             </div>
           </div>
