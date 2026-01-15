@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import styles from "./team.module.css"
 
-
 const coreTeam = [
   { name: "Member 1", role: "President", img: "/team/president.jpg" },
   { name: "Member 2", role: "Vice President", img: "/team/vice-president.jpg" },
@@ -48,12 +47,87 @@ const heads = [
 
 
 
-
-
-
-
-
-
-
 ]
+
+export default function TeamPage() {
+  return (
+    <>
+      <SiteNavbar solidBackground />
+      <main className={styles.main}>
+        <PageHeader
+          title="Meet Our Team"
+          subtitle="A diverse group of builders, designers, and organizers powering ISA VIT Pune."
+          ctas={false}
+        />
+        <section className={styles.section} aria-label="Core Team">
+          <div className={styles.titleContainer}>
+            <h2 className={styles.sectionTitle}>Core Team</h2>
+            <div className={styles.titleUnderline}></div>
+          </div>
+          <div className={styles.grid}>
+            {coreTeam.map((m, idx) => (
+              <motion.article
+                key={m.name}
+                className={styles.card}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.04 }}
+              >
+                <div className={styles.avatarWrap}>
+                  <Image
+                    src={m.img || "/placeholder.svg"}
+                    alt={`${m.name} - ${m.role}`}
+                    fill
+                    className={styles.avatar}
+                    sizes="(min-width: 768px) 250px, 100vw"
+                  />
+                </div>
+                <div className={styles.meta}>
+                  <h3>{m.name}</h3>
+                  <p>{m.role}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section} aria-label="Department Heads">
+          <div className={styles.titleContainer}>
+            <h2 className={styles.sectionTitle}>Heads</h2>
+            <div className={styles.titleUnderline}></div>
+          </div>
+          <div className={styles.gridHeads}>
+            {heads.map((m, idx) => (
+              <motion.article
+                key={m.name}
+                className={styles.card}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.03 }}
+              >
+                <div className={styles.avatarWrap}>
+                  <Image
+                    src={m.img || "/placeholder.svg"}
+                    alt={`${m.name} - ${m.role}`}
+                    fill
+                    className={styles.avatar}
+                    sizes="(min-width: 768px) 250px, 100vw"
+                  />
+                </div>
+                <div className={styles.meta}>
+                  <h3>{m.name}</h3>
+                  <p>{m.role}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  )
+}
+
 
