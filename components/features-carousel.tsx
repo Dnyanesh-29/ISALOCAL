@@ -1,3 +1,6 @@
+
+
+
 "use client"
 
 import { useEffect, useRef, useState } from "react"
@@ -30,56 +33,6 @@ const features = [
 ]
 
 export function FeaturesCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const autoScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
-
-  const startAutoScroll = () => {
-    if (isMobile) return // don't auto-scroll on mobile
-
-    if (autoScrollTimeoutRef.current) {
-      clearTimeout(autoScrollTimeoutRef.current)
-    }
-    autoScrollTimeoutRef.current = setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % features.length)
-    }, 5000)
-  }
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % features.length)
-    startAutoScroll()
-  }
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + features.length) % features.length)
-    startAutoScroll()
-  }
-
-  const handleIndicatorClick = (index: number) => {
-    setActiveIndex(index)
-    startAutoScroll()
-  }
-
-  useEffect(() => {
-    startAutoScroll()
-    return () => {
-      if (autoScrollTimeoutRef.current) {
-        clearTimeout(autoScrollTimeoutRef.current)
-      }
-    }
-  }, [isMobile])
-
-  export function FeaturesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const autoScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
