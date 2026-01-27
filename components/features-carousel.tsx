@@ -79,8 +79,58 @@ export function FeaturesCarousel() {
     }
   }, [isMobile])
 
+  export function FeaturesCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const autoScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const startAutoScroll = () => {
+    if (isMobile) return
+
+    if (autoScrollTimeoutRef.current) {
+      clearTimeout(autoScrollTimeoutRef.current)
+    }
+    autoScrollTimeoutRef.current = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % features.length)
+    }, 5000)
+  }
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % features.length)
+    startAutoScroll()
+  }
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + features.length) % features.length)
+    startAutoScroll()
+  }
+
+  const handleIndicatorClick = (index: number) => {
+    setActiveIndex(index)
+    startAutoScroll()
+  }
+
+  useEffect(() => {
+    startAutoScroll()
+    return () => {
+      if (autoScrollTimeoutRef.current) {
+        clearTimeout(autoScrollTimeoutRef.current)
+      }
+    }
+  }, [isMobile])
+
   return (
-    <div className={styles.carouselSection}>
+    <section className={styles.carouselSection}>
       <h2 className={styles.sectionTitle}>What you'll get</h2>
 
       <div className={styles.carouselContainer}>
@@ -100,8 +150,8 @@ export function FeaturesCarousel() {
                 style={
                   !isMobile
                     ? {
-                        transform: `translateX(${offset * 100}%) scale(${isActive ? 1 : 0.75})`,
-                        opacity: Math.abs(offset) > 1 ? 0 : 1,
+                        transform: `translateX(${offset * 100}%) scale(${isActive ? 1 : 0.85})`,
+                        opacity: Math.abs(offset) > 1 ? 0 : isActive ? 1 : 0.5,
                       }
                     : {}
                 }
@@ -123,7 +173,6 @@ export function FeaturesCarousel() {
         </button>
       </div>
 
-      {/* Indicators below navigation */}
       <div className={styles.indicators}>
         {features.map((_, index) => (
           <button
@@ -134,6 +183,6 @@ export function FeaturesCarousel() {
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
