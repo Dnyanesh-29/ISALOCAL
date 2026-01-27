@@ -24,8 +24,8 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-
   border-radius: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
 }
 
 .carouselContainer {
@@ -55,11 +55,16 @@
   max-width: 650px;
   padding: 0;
   border-radius: 24px;
-  background: rgba(100, 140, 200, 0.15);
-  backdrop-filter: blur(60px) saturate(200%);
-  -webkit-backdrop-filter: blur(60px) saturate(200%);
-  border: 1.5px solid rgba(59, 130, 246, 0.4);
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* Proper glassmorphism */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -67,13 +72,45 @@
   overflow: hidden;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 .card.active {
   opacity: 1;
   z-index: 10;
   transform: scale(1);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  background: rgba(100, 140, 200, 0.2);
-  border-color: rgba(59, 130, 246, 0.6);
+  
+  /* Enhanced glassmorphism for active state */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 12px 48px 0 rgba(31, 38, 135, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 4px 24px 0 rgba(59, 130, 246, 0.15);
+}
+
+.card.active::before {
+  opacity: 1;
 }
 
 .card:not(.active) {
@@ -85,9 +122,25 @@
   flex: 0 0 45%;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(14, 165, 233, 0.1));
-  border-radius: 28px;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.15), 
+    rgba(139, 92, 246, 0.12));
+  border-radius: 20px;
   margin: 1.5rem;
+  position: relative;
+}
+
+.cardImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%);
+  pointer-events: none;
 }
 
 .cardImage img {
@@ -112,6 +165,19 @@
   z-index: 1;
 }
 
+.cardContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%);
+}
+
 .cardTitle {
   font-size: 1.75rem;
   font-weight: 800;
@@ -119,26 +185,32 @@
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .cardDescription {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;
   font-weight: 500;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 .navButton {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(64, 61, 67, 0.2);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1.5px solid rgba(48, 46, 50, 0.5);
+  
+  /* Glassmorphism for buttons */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 4px 24px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -146,14 +218,36 @@
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   flex-shrink: 0;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+  position: relative;
+}
+
+.navButton::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.4),
+    rgba(139, 92, 246, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .navButton:hover {
-  background: rgba(77, 72, 82, 0.4);
-  border-color: rgba(50, 46, 53, 0.8);
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
+  box-shadow: 
+    0 6px 32px 0 rgba(31, 38, 135, 0.2),
+    0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.navButton:hover::before {
+  opacity: 1;
 }
 
 .navButton:active {
@@ -171,36 +265,45 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(168, 85, 247, 0.3);
-  border: 1px solid rgba(80, 77, 83, 0.5);
+  
+  /* Glassmorphism for indicators */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .indicator:hover {
-  background: rgba(168, 85, 247, 0.6);
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.15);
 }
 
 .indicatorActive {
-  background: #a855f7;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   width: 32px;
   border-radius: 6px;
-  border: none;
-  box-shadow: 0 0 15px rgba(47, 44, 51, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 767px) {
   .navButton {
     display: none;
   }
-
+  
   .carouselContainer {
     gap: 1rem;
     overflow: visible;
     flex-direction: column;
   }
-
+  
   .cardsTrack {
     position: static;
     max-width: 100%;
@@ -212,7 +315,7 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-
+  
   .card {
     position: static !important;
     width: 100%;
@@ -220,43 +323,55 @@
     flex-direction: column;
     transform: none !important;
     opacity: 1 !important;
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     margin-bottom: 0;
-    background: rgba(100, 140, 200, 0.15);
-    backdrop-filter: blur(60px) saturate(200%);
-    -webkit-backdrop-filter: blur(60px) saturate(200%);
-    border: 1.5px solid rgba(59, 130, 246, 0.4);
+    
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
   }
-
+  
   .card.active {
-    box-shadow: 0 8px 32px rgba(90, 86, 94, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(168, 85, 247, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    box-shadow: 
+      0 12px 48px 0 rgba(31, 38, 135, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset;
   }
-
+  
   .card:not(.active) {
     opacity: 1 !important;
   }
-
+  
   .cardImage {
     height: 240px;
     flex: 0 0 auto;
     margin: 0;
     border-radius: 0;
   }
-
+  
   .cardContent {
     padding: 1.75rem 1.5rem;
     gap: 1rem;
   }
-
+  
+  .cardContent::before {
+    display: none;
+  }
+  
   .cardTitle {
     font-size: 1.5rem;
   }
-
+  
   .cardDescription {
     font-size: 0.95rem;
     line-height: 1.6;
   }
-
+  
   .indicators {
     display: none;
   }
@@ -267,23 +382,23 @@
     margin-block: 2rem;
     gap: 2rem;
   }
-
+  
   .sectionTitle {
     font-size: 1.75rem;
   }
-
+  
   .cardImage {
     height: 200px;
   }
-
+  
   .cardContent {
     padding: 1.25rem 1rem;
   }
-
+  
   .cardTitle {
     font-size: 1.25rem;
   }
-
+  
   .cardDescription {
     font-size: 0.9rem;
   }
