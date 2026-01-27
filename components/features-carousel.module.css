@@ -5,46 +5,22 @@
   padding: 0 1rem;
   position: relative;
   min-height: 600px;
-  overflow: hidden;
+  background: #ffffff;
 }
 
-/* Animated background for glassmorphism effect */
-.backgroundPattern {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.1) 0%, transparent 60%),
-    linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  animation: backgroundShift 15s ease infinite;
-  filter: blur(60px);
-}
-
-@keyframes backgroundShift {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  33% {
-    transform: scale(1.1) rotate(5deg);
-  }
-  66% {
-    transform: scale(0.95) rotate(-5deg);
-  }
-}
+/* Removed animated background - using white bg only */
 
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.03em;
   text-align: center;
   position: relative;
   display: inline-block;
   width: 100%;
   z-index: 2;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .sectionTitle::after {
@@ -89,15 +65,15 @@
   padding: 0;
   border-radius: 28px;
   
-  /* Premium glassmorphism */
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  /* Glassmorphism on white background */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 20px 60px rgba(14, 165, 233, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   
   display: flex;
   flex-direction: row;
@@ -137,8 +113,8 @@
   border-radius: 28px;
   padding: 2px;
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(14, 165, 233, 0.3) 50%,
+    rgba(59, 130, 246, 0.3) 0%,
+    rgba(14, 165, 233, 0.2) 50%,
     rgba(59, 130, 246, 0.3) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -153,16 +129,16 @@
   z-index: 10;
   transform: scale(1);
   
-  /* Enhanced glassmorphism for active state */
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(50px) saturate(200%);
-  -webkit-backdrop-filter: blur(50px) saturate(200%);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  /* Enhanced glassmorphism for active state on white */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(203, 213, 225, 0.8);
   box-shadow: 
-    0 16px 64px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 30px 90px rgba(14, 165, 233, 0.15),
-    0 0 80px rgba(59, 130, 246, 0.1);
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 1) inset,
+    0 0 40px rgba(59, 130, 246, 0.08);
 }
 
 .card.active::after {
@@ -179,14 +155,14 @@
   height: 100%;
   overflow: hidden;
   background: linear-gradient(135deg, 
-    rgba(14, 165, 233, 0.15), 
-    rgba(59, 130, 246, 0.15));
+    rgba(59, 130, 246, 0.05), 
+    rgba(14, 165, 233, 0.05));
   border-radius: 24px;
   margin: 1.25rem;
   position: relative;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 /* Glass overlay on image */
@@ -195,9 +171,9 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 0%,
     transparent 50%,
-    rgba(0, 0, 0, 0.1) 100%);
+    rgba(0, 0, 0, 0.03) 100%);
   pointer-events: none;
   z-index: 1;
   border-radius: 24px;
@@ -236,30 +212,28 @@
   height: 80%;
   background: linear-gradient(180deg, 
     transparent 0%,
-    rgba(255, 255, 255, 0.2) 20%,
-    rgba(255, 255, 255, 0.2) 80%,
+    rgba(226, 232, 240, 0.8) 20%,
+    rgba(226, 232, 240, 0.8) 80%,
     transparent 100%);
 }
 
 .cardTitle {
   font-size: 1.85rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  text-shadow: 
-    0 2px 16px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(59, 130, 246, 0.2);
+  text-shadow: none;
 }
 
 .cardDescription {
-  color: rgba(255, 255, 255, 0.95);
+  color: #475569;
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
   font-weight: 400;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .navButton {
@@ -267,16 +241,17 @@
   height: 56px;
   border-radius: 50%;
   
-  /* Glassmorphism for buttons */
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  /* Glassmorphism for buttons on white */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
   
-  color: #fff;
+  color: #334155;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -305,12 +280,12 @@
 }
 
 .navButton:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(203, 213, 225, 0.8);
   transform: scale(1.1);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    0 0 40px rgba(59, 130, 246, 0.3);
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .navButton:hover::before {
@@ -335,20 +310,20 @@
   height: 10px;
   border-radius: 50%;
   
-  /* Glassmorphism for indicators */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  /* Glassmorphism for indicators on white */
+  background: rgba(203, 213, 225, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .indicator:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(148, 163, 184, 0.6);
   transform: scale(1.2);
 }
 
@@ -356,18 +331,14 @@
   background: linear-gradient(135deg, #0ea5e9, #3b82f6);
   width: 36px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   box-shadow: 
-    0 4px 16px rgba(59, 130, 246, 0.5),
-    0 0 30px rgba(14, 165, 233, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 4px 12px rgba(59, 130, 246, 0.25),
+    0 0 20px rgba(14, 165, 233, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 767px) {
-  .backgroundPattern {
-    filter: blur(60px);
-  }
-
   .navButton {
     display: none;
   }
@@ -399,23 +370,25 @@
     opacity: 1 !important;
     margin-bottom: 0;
     
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 1px 2px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
   
   .card.active {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
     box-shadow: 
-      0 12px 48px rgba(0, 0, 0, 0.3),
-      0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-      0 0 60px rgba(59, 130, 246, 0.15);
+      0 12px 40px rgba(0, 0, 0, 0.1),
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 1) inset,
+      0 0 30px rgba(59, 130, 246, 0.06);
   }
   
   .card:not(.active) {
@@ -460,7 +433,6 @@
   .carouselSection {
     margin-block: 2rem;
     gap: 2rem;
-    min-height: auto;
   }
   
   .sectionTitle {
