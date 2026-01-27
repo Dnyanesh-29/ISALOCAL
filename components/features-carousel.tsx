@@ -1,11 +1,8 @@
-
-
-
 "use client"
 
 import { useEffect, useRef, useState } from "react"
 import styles from "./features-carousel.module.css"
-import { ChevronUp } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const features = [
   {
@@ -84,11 +81,14 @@ export function FeaturesCarousel() {
 
   return (
     <section className={styles.carouselSection}>
+      {/* Animated background for glassmorphism */}
+      <div className={styles.backgroundPattern}></div>
+      
       <h2 className={styles.sectionTitle}>What you'll get</h2>
 
       <div className={styles.carouselContainer}>
         <button className={styles.navButton} onClick={handlePrev} aria-label="Previous feature">
-          <ChevronUp size={24} style={{ transform: "rotate(-90deg)" }} />
+          <ChevronLeft size={24} strokeWidth={2.5} />
         </button>
 
         <div className={styles.cardsTrack}>
@@ -110,7 +110,7 @@ export function FeaturesCarousel() {
                 }
               >
                 <div className={styles.cardImage}>
-                  <img src={feature.image || "/placeholder.svg"} alt={feature.title} />
+                  <img src={feature.image || "/placeholder.svg"} alt={feature.title} loading="lazy" />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{feature.title}</h3>
@@ -122,7 +122,7 @@ export function FeaturesCarousel() {
         </div>
 
         <button className={styles.navButton} onClick={handleNext} aria-label="Next feature">
-          <ChevronUp size={24} style={{ transform: "rotate(90deg)" }} />
+          <ChevronRight size={24} strokeWidth={2.5} />
         </button>
       </div>
 
