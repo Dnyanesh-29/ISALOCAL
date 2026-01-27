@@ -5,7 +5,6 @@
   padding: 0 1rem;
   position: relative;
   min-height: 600px;
-  background: #ffffff;
 }
 
 /* Removed animated background - using white bg only */
@@ -450,6 +449,7 @@
   .cardTitle {
     font-size: 1.35rem;
   }
+  
   .cardDescription {
     font-size: 0.9rem;
   }
