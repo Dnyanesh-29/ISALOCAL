@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useMemo } from "react"
 import styles from "./features-carousel.module.css"
-import { ChevronUp } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { memo } from "react"
 
 const features = [
