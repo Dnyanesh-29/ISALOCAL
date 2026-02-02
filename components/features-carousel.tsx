@@ -22,7 +22,7 @@ const features = [
   },
   {
     id: 3,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5X5G_MQzqTkjLQDhvGBsa89oWR10WKA0pw&s",
+    image: "/isaIM.png",
     title: "Industry Mentorship",
     description:
       "Guidance from experts to accelerate your growth through personalized mentorship and career development opportunities.",
