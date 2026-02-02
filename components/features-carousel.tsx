@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const features = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=400&fit=crop",
+    image: "/isaRO.jpg",
     title: "Hands-on Workshops",
     description:
       "From embedded systems to AI—learn by building practical projects with hands-on experience and real-world applications.",
