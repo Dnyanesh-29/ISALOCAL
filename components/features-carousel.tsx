@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useMemo } from "react"
 import styles from "./features-carousel.module.css"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronUp } from "lucide-react"
+import { memo } from "react"
 
 const features = [
   {
@@ -28,6 +29,27 @@ const features = [
       "Guidance from experts to accelerate your growth through personalized mentorship and career development opportunities.",
   },
 ]
+
+const CarouselCard = memo(({ feature, isActive, offset, styles: styleModule }: any) => {
+  const translateValue = offset * 110
+  return (
+    <div
+      className={`${styleModule.card} ${isActive ? styleModule.cardActive : ''}`}
+      style={{
+        transform: `translateX(calc(${translateValue}% + ${offset * 20}px)) scale(${isActive ? 1 : 0.85})`,
+        opacity: isActive ? 1 : 0.5,
+      }}
+    >
+      <img src={feature.image || "/placeholder.svg"} alt={feature.title} className={styleModule.cardImage} loading="lazy" />
+      <h3 className={styleModule.cardTitle}>{feature.title}</h3>
+      <p className={styleModule.cardDescription}>{feature.description}</p>
+    </div>
+  )
+})
+
+CarouselCard.displayName = 'CarouselCard'
+
+
 
 export function FeaturesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
