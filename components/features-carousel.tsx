@@ -15,7 +15,7 @@ const features = [
   {
     id: 2,
     image:
-      "https://varioproductions.com/wp-content/uploads/2020/02/5-Event-Tech-Trends-to-Watch-Out-For-in-2020-scaled-1-1024x683.jpg",
+      "/isaFE.png",
     title: "Flagship Events",
     description:
       "Compete, collaborate, and showcase your skills in our signature competitions and networking events designed for excellence.",
