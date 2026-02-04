@@ -282,7 +282,7 @@ export function GPUParticleBackground() {
             gl_FragColor = vec4(0.1, 0.5, 1.0, 0.6);
         }`
 
-      const shaderPointVertex = `
+        const shaderPointVertex = `
         attribute vec2 reference;
         uniform sampler2D texturePosition;
         void main() {
